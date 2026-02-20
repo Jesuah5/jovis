@@ -1,0 +1,75 @@
+/* ============================================================
+   Item Cell — Apple Notes List Style
+   ============================================================ */
+
+.item-cell {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    padding: 12px var(--space-md);
+    min-height: 60px;
+    cursor: pointer;
+    transition: background 0.12s;
+    position: relative;
+}
+
+.item-cell:active {
+    background: var(--fill-quaternary);
+}
+
+.item-cell:not(.last) {
+    border-bottom: 0.5px solid var(--separator);
+}
+
+.cell-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.cell-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.cell-top {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.cell-title {
+    font-size: var(--fs-body);
+    font-weight: 500;
+    color: var(--label);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.cell-shared-icon {
+    color: var(--accent);
+    flex-shrink: 0;
+}
+
+.cell-bottom {
+    margin-top: 2px;
+}
+
+.cell-detail {
+    font-size: var(--fs-subheadline);
+    color: var(--label-secondary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+}
+
+.cell-chevron {
+    color: var(--label-quaternary);
+    flex-shrink: 0;
+}

@@ -1,0 +1,191 @@
+/* ============================================================
+   Sidebar (Desktop) + Tab Bar (Mobile) — Apple Style
+   ============================================================ */
+
+/* ---- Desktop Sidebar ---- */
+.sidebar-desktop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: var(--sidebar-width);
+    background: var(--bg-elevated);
+    border-right: 0.5px solid var(--separator);
+    display: flex;
+    flex-direction: column;
+    z-index: 200;
+    padding: var(--space-lg) 0 var(--space-md);
+}
+
+.sidebar-brand {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: 0 var(--space-lg) var(--space-lg);
+}
+
+.sidebar-app-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.brand-name {
+    font-size: var(--fs-title3);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+}
+
+/* Nav links */
+.sidebar-nav {
+    flex: 1;
+    padding: 0 var(--space-sm);
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.sidebar-link {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: 10px var(--space-md);
+    border-radius: var(--radius-sm);
+    color: var(--label);
+    font-size: var(--fs-body);
+    font-weight: 400;
+    text-decoration: none;
+    transition: background 0.15s;
+    border: none;
+    background: none;
+    cursor: pointer;
+    width: 100%;
+    font-family: var(--font);
+    min-height: 44px;
+}
+
+.sidebar-link svg {
+    color: var(--label-secondary);
+    flex-shrink: 0;
+}
+
+.sidebar-link:hover {
+    background: var(--fill-quaternary);
+    text-decoration: none;
+}
+
+.sidebar-link:active {
+    background: var(--fill-tertiary);
+}
+
+.sidebar-link.active {
+    background: rgba(0, 122, 255, 0.12);
+    color: var(--accent);
+    font-weight: 600;
+}
+
+.sidebar-link.active svg {
+    color: var(--accent);
+}
+
+.sidebar-link.logout {
+    color: var(--destructive);
+}
+
+.sidebar-link.logout svg {
+    color: var(--destructive);
+}
+
+/* Footer */
+.sidebar-footer {
+    padding: var(--space-sm);
+    border-top: 0.5px solid var(--separator);
+    margin-top: auto;
+}
+
+.sidebar-user {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-sm) var(--space-md);
+    margin-bottom: var(--space-xs);
+}
+
+.sidebar-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.sidebar-avatar-placeholder {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #007AFF, #5856D6);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: var(--fs-subheadline);
+}
+
+.sidebar-username {
+    font-size: var(--fs-subheadline);
+    font-weight: 500;
+    color: var(--label);
+}
+
+/* ---- Hide desktop sidebar on mobile ---- */
+@media (max-width: 768px) {
+    .sidebar-desktop {
+        display: none;
+    }
+}
+
+/* ---- Mobile Tab Bar ---- */
+.tabbar-mobile {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .tabbar-mobile {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: var(--tabbar-height);
+        background: var(--bg-elevated);
+        border-top: 0.5px solid var(--separator);
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-around;
+        padding-top: 8px;
+        padding-bottom: env(safe-area-inset-bottom, 20px);
+        z-index: 200;
+    }
+
+    .tab-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 3px;
+        color: var(--label-secondary);
+        text-decoration: none;
+        font-size: 10px;
+        font-weight: 500;
+        min-width: 64px;
+        padding: 4px 0;
+        transition: color 0.15s;
+    }
+
+    .tab-item.active {
+        color: var(--accent);
+    }
+
+    .tab-item:hover {
+        text-decoration: none;
+    }
+}

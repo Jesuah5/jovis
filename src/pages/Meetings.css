@@ -1,0 +1,20 @@
+/* ============================================================
+   Meetings List Page — Apple Style
+   ============================================================ */
+
+.meetings-page {
+    min-height: 100vh;
+    background: var(--bg-grouped);
+}
+
+.meetings-banner {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    margin: 0 var(--space-md) var(--space-md);
+    padding: 12px var(--space-md);
+    background: rgba(255, 149, 0, 0.1);
+    color: var(--system-orange);
+    border-radius: var(--radius-group);
+    font-size: var(--fs-subheadline);
+}

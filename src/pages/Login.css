@@ -1,0 +1,113 @@
+/* ============================================================
+   Login Page — Apple Style (Perfectly Centered)
+   ============================================================ */
+
+.login-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  min-height: 100dvh;
+  background: var(--bg-grouped);
+  padding: var(--space-md);
+  margin-left: 0 !important;
+}
+
+/* Override main-content margin for login (no sidebar) */
+.main-content:has(.login-page) {
+  margin-left: 0 !important;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 360px;
+  text-align: center;
+  animation: loginFadeIn 0.6s var(--ease-out);
+}
+
+@keyframes loginFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.login-header {
+  margin-bottom: var(--space-xl);
+}
+
+.app-icon-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 18px;
+  margin: 0 auto var(--space-md);
+  display: block;
+  object-fit: cover;
+}
+
+.app-name {
+  font-size: var(--fs-title1);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin-bottom: var(--space-xs);
+}
+
+.login-subtitle {
+  font-size: var(--fs-subheadline);
+  color: var(--label-secondary);
+}
+
+/* Form */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-lg);
+}
+
+.input-wrapper {
+  position: relative;
+}
+
+.input-icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--label-tertiary);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.apple-input.with-icon {
+  padding-left: 42px;
+}
+
+.form-error {
+  font-size: var(--fs-footnote);
+  color: var(--destructive);
+  text-align: left;
+  padding: 0 var(--space-xs);
+}
+
+.form-success {
+  font-size: var(--fs-footnote);
+  color: var(--success);
+  text-align: left;
+  padding: 0 var(--space-xs);
+}
+
+.toggle-auth {
+  font-size: var(--fs-subheadline);
+  color: var(--label-secondary);
+}
+
+.toggle-auth .btn-text {
+  font-size: var(--fs-subheadline);
+  font-weight: 500;
+}

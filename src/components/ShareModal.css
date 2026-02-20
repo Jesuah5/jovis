@@ -1,0 +1,27 @@
+/* ============================================================
+   Share Modal — Apple Sheet Style
+   ============================================================ */
+
+.share-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-lg);
+}
+
+.share-row {
+    display: flex;
+    gap: var(--space-sm);
+}
+
+.perm-select {
+    flex: 1;
+}
+
+.shared-list {
+    margin-top: var(--space-sm);
+}
+
+.shared-list .group-header {
+    padding-left: 0;
+}
