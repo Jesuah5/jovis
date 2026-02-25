@@ -81,7 +81,6 @@ const AI_ICONS = { gemini: GeminiIcon, groq: GroqIcon, mistral: MistralIcon, coh
 const THEME_OPTIONS = [
     { id: 'light', label: 'Light', icon: Sun },
     { id: 'dark', label: 'Dark', icon: Moon },
-    { id: 'system', label: 'System', icon: Monitor },
 ]
 
 /* ============================================================

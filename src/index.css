@@ -158,6 +158,11 @@ a:hover {
     display: flex;
     min-height: 100vh;
     min-height: 100dvh;
+    transition: var(--sidebar-width) 0.3s var(--ease-apple);
+}
+
+.app-layout.collapsed {
+    --sidebar-width: 72px;
 }
 
 .main-content {

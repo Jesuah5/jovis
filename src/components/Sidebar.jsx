@@ -2,11 +2,11 @@ import { useState } from 'react'
 import { NavLink, useNavigate, useLocation } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
 import {
-    Home, Mic, LogOut, Settings,
+    Home, Mic, LogOut, Settings, PenTool, Menu
 } from 'lucide-react'
 import './Sidebar.css'
 
-export default function Sidebar() {
+export default function Sidebar({ isCollapsed, toggleSidebar }) {
     const { profile, signOut } = useAuth()
     const navigate = useNavigate()
     const location = useLocation()
@@ -19,16 +19,24 @@ export default function Sidebar() {
     const navItems = [
         { to: '/', icon: Home, label: 'Home' },
         { to: '/meetings', icon: Mic, label: 'Meetings' },
+        { to: '/whiteboard', icon: PenTool, label: 'Whiteboard' },
         { to: '/profile', icon: Settings, label: 'Settings' },
     ]
 
     return (
         <>
             {/* ---- Desktop Sidebar ---- */}
-            <aside className="sidebar-desktop">
-                <div className="sidebar-brand">
-                    <img src="/app-icon.png" alt="Jovis" className="sidebar-app-icon" />
-                    <span className="brand-name">Jovis</span>
+            <aside className={`sidebar-desktop ${isCollapsed ? 'collapsed-mode' : ''}`}>
+                <div className="sidebar-brand" style={{ paddingLeft: isCollapsed ? 'var(--space-md)' : 'var(--space-lg)' }}>
+                    <button className="icon-btn" onClick={toggleSidebar} style={{ color: 'var(--label)', padding: '4px' }}>
+                        <Menu size={24} />
+                    </button>
+                    {!isCollapsed && (
+                        <>
+                            <img src="/app-icon.png" alt="Jovis" className="sidebar-app-icon" style={{ marginLeft: '8px' }} />
+                            <span className="brand-name">Jovis</span>
+                        </>
+                    )}
                 </div>
 
                 <nav className="sidebar-nav">
@@ -40,7 +48,7 @@ export default function Sidebar() {
                             className={({ isActive }) => `sidebar-link ${isActive ? 'active' : ''}`}
                         >
                             <Icon size={20} />
-                            <span>{label}</span>
+                            {!isCollapsed && <span>{label}</span>}
                         </NavLink>
                     ))}
                 </nav>
@@ -54,11 +62,11 @@ export default function Sidebar() {
                                 {(profile?.display_name || '?')[0].toUpperCase()}
                             </div>
                         )}
-                        <span className="sidebar-username">{profile?.display_name || 'User'}</span>
+                        {!isCollapsed && <span className="sidebar-username">{profile?.display_name || 'User'}</span>}
                     </div>
-                    <button className="sidebar-link logout" onClick={handleSignOut}>
+                    <button className="sidebar-link logout" onClick={handleSignOut} title="Sign Out">
                         <LogOut size={20} />
-                        <span>Sign Out</span>
+                        {!isCollapsed && <span>Sign Out</span>}
                     </button>
                 </div>
             </aside>

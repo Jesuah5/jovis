@@ -1,0 +1,21 @@
+.whiteboard-container {
+    height: 100vh;
+    height: 100dvh;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.excalidraw-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    border-radius: 0;
+    border: none;
+    box-shadow: none;
+    background: transparent;
+}

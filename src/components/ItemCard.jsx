@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 import {
-    FileText, CheckSquare, Image, Bookmark, Share2, ChevronRight,
+    FileText, CheckSquare, Image, Bookmark, Share2, ChevronRight, PenTool
 } from 'lucide-react'
 import './ItemCard.css'
 
@@ -10,6 +10,7 @@ const TYPE_ICONS = {
     media: Image,
     bookmark: Bookmark,
     meeting: FileText,
+    whiteboard: PenTool,
 }
 
 const TYPE_COLORS = {
@@ -18,6 +19,7 @@ const TYPE_COLORS = {
     media: '#FF2D55',
     bookmark: '#007AFF',
     meeting: '#AF52DE',
+    whiteboard: '#AF52DE',
 }
 
 export default function ItemCard({ item, isLast }) {
@@ -45,10 +47,10 @@ export default function ItemCard({ item, isLast }) {
     return (
         <div
             className={`item-cell ${isLast ? 'last' : ''}`}
-            onClick={() => navigate(`/item/${item.id}`)}
+            onClick={() => navigate(item.type === 'whiteboard' ? `/whiteboard/${item.id}` : `/item/${item.id}`)}
             role="button"
             tabIndex={0}
-            onKeyDown={(e) => e.key === 'Enter' && navigate(`/item/${item.id}`)}
+            onKeyDown={(e) => e.key === 'Enter' && navigate(item.type === 'whiteboard' ? `/whiteboard/${item.id}` : `/item/${item.id}`)}
             id={`item-card-${item.id}`}
         >
             <div className="cell-icon" style={{ background: TYPE_COLORS[item.type] }}>

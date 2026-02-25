@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { supabase } from '../lib/supabaseClient'
 import { useAuth } from '../context/AuthContext'
-import { X, FileText, CheckSquare, Image, Bookmark, Upload } from 'lucide-react'
+import { X, FileText, CheckSquare, Image, Bookmark, Upload, PenTool } from 'lucide-react'
 import './CreateItemModal.css'
 
 const TYPES = [
@@ -9,6 +9,7 @@ const TYPES = [
     { value: 'todo', label: 'To-Do', icon: CheckSquare, color: '#34C759' },
     { value: 'media', label: 'Media', icon: Image, color: '#FF2D55' },
     { value: 'bookmark', label: 'Bookmark', icon: Bookmark, color: '#007AFF' },
+    { value: 'whiteboard', label: 'Whiteboard', icon: PenTool, color: '#AF52DE' },
 ]
 
 export default function CreateItemModal({ onClose, onCreated }) {
@@ -38,7 +39,7 @@ export default function CreateItemModal({ onClose, onCreated }) {
 
         const newItem = {
             user_id: user.id, type, title: title.trim(),
-            body: type === 'note' ? { html: '' } : type === 'todo' ? { todos: [] } : {},
+            body: type === 'note' ? { html: '' } : type === 'todo' ? { todos: [] } : type === 'whiteboard' ? { elements: [] } : {},
             media_url: mediaUrl,
             bookmark_url: type === 'bookmark' ? bookmarkUrl : '',
         }
